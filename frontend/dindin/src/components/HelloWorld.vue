@@ -25,9 +25,9 @@
           rel="noopener"
           >vuex</a
         >
-      </li>
+      </li> 
       <li>
-        <a
+        <a 
           href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
           target="_blank"
           rel="noopener"
