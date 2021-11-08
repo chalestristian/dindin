@@ -13,7 +13,7 @@ class CursoController {
         professor: String(req.body.professor),
       }
       
-      // console.log(curso) AQUI RETORNA
+       console.log(curso) 
       
       const cursoResult = await Curso.create(curso); 
       return res.status(200).json(cursoResult);
