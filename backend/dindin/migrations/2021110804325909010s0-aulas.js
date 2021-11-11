@@ -32,10 +32,6 @@ module.exports = {
       cursoid:{
         allowNull: false,
         type: Sequelize.INTEGER,      
-        references: {      
-          model: 'Cursos',
-          key: 'id',
-        },
       },
       createdAt: {
         allowNull: false,

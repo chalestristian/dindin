@@ -2,12 +2,14 @@ const  Curso  = require('../models/Curso');
 
 module.exports ={
 
-  async create(req, res) {
-    
+  async create(req, res) {  
+    try{  
       const { titulo, descricao, capa, professor } = req.body; 
       const curso = await Curso.create({titulo, descricao, capa, professor});
       return res.json(curso);
-     
+    }catch{
+      return res.status(400).json({ error: err.mesage });
+    }
     }, 
 
   async getAll(req, res) {  

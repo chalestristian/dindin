@@ -13,10 +13,6 @@ class Aula extends Model{
     {
       sequelize
     })
-
-    
-  }
-}
+  }}
 module.exports = Aula;
-
  
