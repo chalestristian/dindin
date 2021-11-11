@@ -1,6 +1,8 @@
 const  Curso  = require('../models/Curso');
+const  Aula  = require('../models/Aula');
 
 module.exports ={
+
 
   async create(req, res) {  
     try{  
@@ -66,5 +68,26 @@ module.exports ={
     catch (err) {
       res.status(400).json({ error: err.message })
     }
-  }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+  async getCursoeAula(req, res) {  
+    const curso = await Curso.findAll({});
+  
+    return res.json(curso);
+
+    
+  },
+
 }

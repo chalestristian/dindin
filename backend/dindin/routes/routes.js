@@ -18,5 +18,7 @@ routes.post('/aulas',  AulasController.create);
 routes.put('/aulas/:id',  AulasController.update);
 routes.delete('/aulas/:id',  AulasController.delete);
 
+routes.get('/all',  CursosController.getCursoeAula);
+
 
 module.exports = routes;

@@ -1,5 +1,6 @@
 const  Aula  = require('../models/Aula');
 
+
 module.exports ={
 
   async create(req, res) {
@@ -24,6 +25,23 @@ module.exports ={
       const aula = await Aula.findByPk(req.params.id);
       if (aula) {
         return res.status(200).json(aula);
+      }
+      else {
+        return res.status(200).json({ mensagem: "aula não encontrado" });
+      }
+    }
+    catch (err) {
+      res.status(400).json({ error: err.message })
+    }
+  },
+
+  async getCursoAulas(req, res) {    
+    try {
+      const curso = await Curso.findByPk(req.params.id);
+      const aula = await Aula.findByPk(req.params.cursoid);
+      if (aula && curso) {
+        return res.status(200).json(aula + curso);
+        
       }
       else {
         return res.status(200).json({ mensagem: "aula não encontrado" });
