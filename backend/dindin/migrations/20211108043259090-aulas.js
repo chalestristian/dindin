@@ -13,7 +13,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      NumeroAula: {
+      numeroaula: {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
@@ -21,21 +21,21 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      aulaCapa: {
+      aulacapa: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      aulaVideo: {
+      aulavideo: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      cursoId:{
+      cursoid:{
         allowNull: false,
         type: Sequelize.INTEGER,      
         references: {      
           model: 'Cursos',
-          key: 'id'
-        }
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,

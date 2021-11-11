@@ -1,34 +1,22 @@
-const { Sequelize } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
-module.exports = (sequelize, Sequelize) => {
-  const Aulas = sequelize.define("Aulas", {
-    titulo: {
-      allowNull: false,
-      type: Sequelize.STRING,
+class Aula extends Model{
+  static init(sequelize){
+    super.init({
+      titulo: DataTypes.STRING,      
+      numeroaula:  DataTypes.INTEGER,      
+      professor: DataTypes.STRING,      
+      aulacapa: DataTypes.STRING,
+      aulavideo: DataTypes.STRING,
+      cursoid: DataTypes.INTEGER,
     },
-    NumeroAula: {
-      allowNull: false,
-      type: Sequelize.INTEGER,
-    },
-    professor: {
-      allowNull: false,
-      type: Sequelize.STRING,
-    },
-    aulaCapa: {
-      allowNull: false,
-      type: Sequelize.STRING,
-    },
-    aulaVideo: {
-      allowNull: false,
-      type: Sequelize.STRING,
-    },
-    cursoId:{
-      allowNull: false,
-      type: Sequelize.INTEGER,      
-      references: {      
-        model: 'Cursos',
-        key: 'id'
-      },
-  }})
-  return Aulas;
+    {
+      sequelize
+    })
+
+    
+  }
 }
+module.exports = Aula;
+
+ 

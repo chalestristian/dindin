@@ -1,12 +1,10 @@
 const express = require('express');
 const routes = require('./routes/routes');
-require('./database')
+require('./database/index')
 
 
 const app = express();
-app.use(express.urlencoded({ extended: false }));
-
-
+app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.use(routes);
 

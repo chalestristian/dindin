@@ -1,35 +1,23 @@
-const { Aula } = require('../models/Aula');
-const { Op, DOUBLE } = require("sequelize");
+const  Aula  = require('../models/Aula');
 
-class AulaController {
-  async create(req, res) {  
-    try {
-      let aula = {
-        titulo: String(req.body.titulo),
-        NumeroAula: Number(req.body.NumeroAula),
-        professor: String(req.body.professor),
-        aulaCapa: String(req.body.aulaCapa),
-        aulaVideo: String(req.body.aulaVideo),
-        cursoId: Number(req.body.cursoId),
-        
-      }
-      const aulaResult = await Aula.create(aula);
-      return res.status(200).json(aulaResult);
-    } catch (err) {
-      return res.status(400).json({ error: err.mesage });
-    }
-  }
+module.exports ={
+
+  async create(req, res) {
+
+      const { titulo, numeroaula, professor, aulacapa, aulavideo, cursoid} = req.body;    
+      const aula = await Aula.create({ titulo, numeroaula, professor, aulacapa, aulavideo, cursoid});
+      return res.json(aula);        
+    },
 
   async getAll(req, res) {
     try {
-      const aula = await Aula.findAll({
-      });
+      const aula = await Aula.findAll({});
       return res.status(200).json(aula);
     }
     catch (err) {
       res.status(400).json({ error: err.message })
     }
-  }
+  },
 
   async getOne(req, res) {    
     try {
@@ -44,7 +32,7 @@ class AulaController {
     catch (err) {
       res.status(400).json({ error: err.message })
     }
-  }
+  },
 
   async update(req, res) {   
     try {
@@ -60,7 +48,7 @@ class AulaController {
     catch (err) {
       res.status(400).json({ error: err.message });
     }
-  }
+  },
 
   async delete(req, res) {   
     try {
@@ -77,6 +65,4 @@ class AulaController {
       res.status(400).json({ error: err.message })
     }
   }
-  
 }
-module.exports = new AulaController();
