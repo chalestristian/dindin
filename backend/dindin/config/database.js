@@ -6,6 +6,6 @@ password: 'password',
 database: 'dindin',
 define:{
     timestamps: true,
-    underscored: false,
+    underscored: true,
 },
 };

@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
 const dbConfig = require('../config/database');
-const Curso = require('../models/Curso')
-const Aula = require('../models/Aula')
+const Course = require('../models/Course')
+const Lesson = require('../models/Lesson')
 
 const connection = new Sequelize(dbConfig);
 
-Curso.init(connection);
-Aula.init(connection);
-
+Course.init(connection);
+Lesson.init(connection);
+Lesson.associate(connection.models)
 module.exports = connection;

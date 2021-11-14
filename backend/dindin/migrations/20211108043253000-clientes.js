@@ -2,42 +2,45 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {  
-     await queryInterface.createTable('Aulas', { 
+     await queryInterface.createTable('clientes', { 
       id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      titulo: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      numeroaula: {
+      codigo: {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
-      professor: {
+      nome: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      aulacapa: {
+      telefone: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      email: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      aulavideo: {
+      endereco: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      cursoid:{
+      course_id:{
         allowNull: false,
-        type: Sequelize.INTEGER,      
+        type: Sequelize.INTEGER,  
+        referencer: {model: 'courses', key: 'id'},
+        onUpdate: 'CASCADE',
+        onDelete:'CASCADE',     
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
       }
@@ -45,6 +48,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-      await queryInterface.dropTable('Aulas'); 
+      await queryInterface.dropTable('clientes'); 
   }
 };
